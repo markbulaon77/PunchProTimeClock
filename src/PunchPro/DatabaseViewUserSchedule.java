@@ -10,14 +10,12 @@ public class DatabaseViewUserSchedule {
 	
 	private Connection conn;
 	
+	public DatabaseViewUserSchedule(Connection conn) {
+		this.conn = conn;
+	}
 
-	public ArrayList<PunchProSchedule> viewUserSchedule(DatabaseConnection dbConnection, int user_number, int year, int month){
-		ArrayList<PunchProSchedule> userSchedList = new ArrayList<>();
-		try {
-			conn = dbConnection.connect_to_punchprodb();
-		} catch (ClassNotFoundException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
+	public ArrayList<PunchProSchedule> viewUserSchedule(int user_number, int year, int month){
+		ArrayList<PunchProSchedule> userSchedList = new ArrayList<>();	
 		
 		//Query to filter by month and year
 		String sql = "SELECT * FROM punchprodb.schedule WHERE user_number = ? AND YEAR(schedule_date) = ? AND MONTH(schedule_date) = ? ORDER BY DAY(schedule_date)";

@@ -21,9 +21,9 @@ public class DatabaseConnection {
 		}
 		
 		if(conn !=null) {
-			//System.out.println("Database connection is sucessful");
+			System.out.println("Database connection is sucessful");
 		}else {
-			//System.out.println("Database connection failed");
+			System.out.println("Database connection failed");
 		}
 		return conn;
 	}

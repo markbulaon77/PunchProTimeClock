@@ -8,14 +8,12 @@ public class DatabaseUpdateUser {
 	
 	private Connection conn;
 	
-	public boolean updateUser(DatabaseConnection dbConnection, PunchPro_User user) {
+	DatabaseUpdateUser(Connection conn) {
+		this.conn = conn;
+	} 
+	
+	public boolean updateUserRecord(PunchPro_User user) {
 		boolean isUpdated = false;
-		
-		try {
-			conn = dbConnection.connect_to_punchprodb();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 		
 		try {
 			String sql = "UPDATE punchprodb.punch_pro_users SET user_fullname = ?, user_email = ?, role = ? WHERE user_number = ? ";

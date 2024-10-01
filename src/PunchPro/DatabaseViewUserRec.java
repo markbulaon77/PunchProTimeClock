@@ -9,20 +9,18 @@ import java.util.ArrayList;
 public class DatabaseViewUserRec {
 	
 	private Connection conn;
+	
+	public DatabaseViewUserRec(Connection conn) {
+		this.conn = conn;
+	}
 
-	public ArrayList<PunchPro_User> viewUserRecords(DatabaseConnection dbConnection, int pageNumber){
+	public ArrayList<PunchPro_User> viewUserRecords(int pageNumber){
 		
 		int PAGE_SIZE = 5;
 		int offset = pageNumber * PAGE_SIZE;
 		ArrayList<PunchPro_User> userList = new ArrayList<>();
 		
 		String query = "SELECT * FROM punchprodb.punch_pro_users LIMIT ? OFFSET ? ";
-		
-		try {
-			conn = dbConnection.connect_to_punchprodb();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
 		
 		try(PreparedStatement stmt = conn.prepareStatement(query)){
 			stmt.setInt(1, PAGE_SIZE);
@@ -35,7 +33,6 @@ public class DatabaseViewUserRec {
 				
 				while(rs.next()) {
 					// Fetch data from ResultSet and create a User object and to be added to the arraylist
-					
 					PunchPro_User user = new PunchPro_User(
 							rs.getInt("user_number"),
 							rs.getString("user_fullname"),
@@ -46,12 +43,10 @@ public class DatabaseViewUserRec {
 					            rs.getInt("user_number"),
 					            rs.getString("user_fullname"),
 					            rs.getString("role"));*/
-					
 					//Add the User object to the arrayList
 					userList.add(user);
-					
 					//Print the result to the console (optional);
-					System.out.println(user.toString());
+				System.out.println(user.toString());
 				}
 				System.out.println("---------------------------------------------------------------");
 			}

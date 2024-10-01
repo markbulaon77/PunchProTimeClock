@@ -1,8 +1,9 @@
 package PunchPro;
 
 public class PunchProSchedule {
+	
 	private int scheduleId; 
-	private int userId; //Refers to the User Class or user number.
+	private int user_number; //Refers to the User Class or user number.
 	private String date; //Scheduled Date or day of work. 
 	private String startTime; //Start time of work.
 	private String breakTime; //Break time.
@@ -17,12 +18,12 @@ public class PunchProSchedule {
 		this.scheduleId = scheduleId;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getUserNumber() {
+		return user_number;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUserId(int user_number) {
+		this.user_number = user_number;
 	}
 
 	public String getDate() {
@@ -65,21 +66,21 @@ public class PunchProSchedule {
 		this.clockOutTime = clockOutTime;
 	}
 
-	public PunchProSchedule(int userId, String date) {
-		this.userId = userId;
+	public PunchProSchedule(int user_number, String date) {
+		this.user_number = user_number;
 		this.date = date;
 	}
 	
-	public PunchProSchedule(int userId, String date, String startTime, String clockOutTime) {
-		this.userId = userId;
+	public PunchProSchedule(int user_number, String date, String startTime, String clockOutTime) {
+		this.user_number = user_number;
 		this.date = date;
 		this.startTime = startTime;
 		this.clockOutTime = clockOutTime;
 	}
 
-	public PunchProSchedule (int scheduleId, int userId, String date, String startTime, String breakTime, String lunchTime, String clockOutTime) {
+	public PunchProSchedule (int scheduleId, int user_number, String date, String startTime, String breakTime, String lunchTime, String clockOutTime) {
 		this.scheduleId = scheduleId;
-		this.userId = userId;
+		this.user_number = user_number;
 		this.date = date;
 		this.startTime = startTime;
 		this.breakTime = breakTime;
