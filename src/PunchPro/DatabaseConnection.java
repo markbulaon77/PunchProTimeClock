@@ -19,12 +19,7 @@ public class DatabaseConnection {
 		}catch(SQLException e) {
 			e.printStackTrace(); 
 		}
-		
-		if(conn !=null) {
-			System.out.println("Database connection is sucessful");
-		}else {
-			System.out.println("Database connection failed");
-		}
+	
 		return conn;
 	}
 	

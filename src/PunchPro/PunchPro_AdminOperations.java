@@ -16,7 +16,6 @@ public class PunchPro_AdminOperations {
 	private DatabaseViewUserRec dbViewUserRecords;
 	private DatabaseUpdateUser dbUpdateUserRecords;
 	private DatabaseDeleteUser dbDelUser;
-	private DatabaseConnection dbConnection;
 	private PunchProSchedule userSchedule;
 	private PunchPro_Admin admin;
 	private PunchPro_User user; 
@@ -33,7 +32,7 @@ public class PunchPro_AdminOperations {
 		this.dbAddUserSchedule = new DatabaseAddUserSchedule(conn);
 		this.dbViewUserSchedule = new DatabaseViewUserSchedule(conn);
 		this.dbUpdateUserSchedule = new DatabaseUpdateUserSchedule(conn);
-		this.dbDeleteUserSchedule = new DatabaseDeleteUserSchedule();
+		this.dbDeleteUserSchedule = new DatabaseDeleteUserSchedule(conn);
 		this.arrUserSchedList = new ArrayList<PunchProSchedule>();
 	} 
 	
@@ -176,10 +175,10 @@ public class PunchPro_AdminOperations {
 							" | Clock-Out Time: " + schedule.getClockOutTime() +
 							" | User Id: " + schedule.getUserNumber());
 			}
-				System.out.println();
+			System.out.println();
 		}else{
-				System.out.println("No schedules found for the selected month and year.");
-			 }
+			System.out.println("No schedules found for the selected month and year.");
+		}
 		
 		
 		while(true) {
@@ -273,17 +272,18 @@ public class PunchPro_AdminOperations {
 	}
 	
 	
-	public void deleteUserSchedule() {
+	public void deleteUserSchedule() 
+	{
 		System.out.println("Enter the user number:");
 		int user_number = scanner.nextInt();
 		scanner.nextLine();
 		
-		System.out.println("Enter the date of the be deleted...");
+		System.out.println("Enter the date of the be deleted ");
 		String user_schedule_date = scanner.nextLine();
 		
 		if(user_number != 0 && user_schedule_date != null) {
 			userSchedule = new PunchProSchedule(user_number, user_schedule_date);
-			boolean scheduleDeleted = dbDeleteUserSchedule.DatabaseDeleteUserSchedule(this.dbConnection, userSchedule);
+			boolean scheduleDeleted = dbDeleteUserSchedule.databaseDeleteUserSchedule(userSchedule); 
 			if(scheduleDeleted) {
 				System.out.println("Schedule deleted...");
 			}else {
