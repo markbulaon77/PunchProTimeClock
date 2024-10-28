@@ -7,6 +7,7 @@ public class Attendance {
 	private String clockInTime;
 	private String breakTime;
 	private String lunchTime;
+	private STring secondBreakTime;
 	private String clockOutTime;
 	
 	public Attendance(int attendanceId, int userId, String date ) {
@@ -27,6 +28,9 @@ public class Attendance {
 	    // SQL update to modify lunch time
 	}
 
+	public void 2ndBreak(String secondBreakTime){
+		this.secondBreakTime = secondBreakTime;
+	}
 	public void clockOut(String clockOutTime) {
 	    this.clockOutTime = clockOutTime;
 	    // SQL update to record clock out time
