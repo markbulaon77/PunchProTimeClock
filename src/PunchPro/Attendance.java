@@ -7,7 +7,7 @@ public class Attendance {
 	private String clockInTime;
 	private String breakTime;
 	private String lunchTime;
-	private STring secondBreakTime;
+	private String secondBreakTime;
 	private String clockOutTime;
 	
 	public Attendance(int attendanceId, int userId, String date ) {
@@ -15,24 +15,69 @@ public class Attendance {
 		this.userId = userId;
 		this.date = date;
 	}
-	
 	//Getter and Setter.
-	
-	public void updateBreak(String breakTime) {
-		this.breakTime = breakTime;
-		//SQL update to modify break time.
-	}
-	
-	public void updateLunch(String lunchTime) {
-	    this.lunchTime = lunchTime;
-	    // SQL update to modify lunch time
+	public void setAttendanceId(int attendanceId){
+		this.attendanceId = attendanceId;
 	}
 
-	public void 2ndBreak(String secondBreakTime){
+	public int getAttendanceId{
+		return attendanceId;
+	}
+
+	public void setUserId(int userId){
+		this.userId = userId;
+	}
+
+	public int getUserId{
+		return userId;
+	}
+
+	public void setDate(String date){
+		this.date = date;
+	}
+
+	public string getDate{
+		return date;
+	}
+
+	public void setClockInTime(String clockInTime){
+		this.clockInTime = clockInTime;
+	}
+
+	public string getClockInTime{
+		return clockInTime;
+	}
+
+	public void setBreakTime(String breakTime){
+		this.breakTime = breakTime;
+	}
+
+	public String getBreakTime{
+		return breakTime;
+	}
+
+	public void setLunchTime(String lunchTime){
+		this.lunchTime = lunchTime;
+	}
+
+	public String getLunchTime{
+		return lunchTime;
+	}
+	
+	public void setsecondBreakTime(String secondBreakTime){
 		this.secondBreakTime = secondBreakTime;
 	}
-	public void clockOut(String clockOutTime) {
-	    this.clockOutTime = clockOutTime;
-	    // SQL update to record clock out time
+
+	public String getSecondBreakTime{
+		return secondBreakTime;
+	}
+
+	public void setClockOutTime(String clockOutTime ){
+		this.clockOutTime = clockOutTime;
+	}
+
+	public String getclockOutTime{
+		return clockOutTime;
 	}
 }
+
