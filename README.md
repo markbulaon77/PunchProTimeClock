@@ -1,0 +1,3 @@
+Currently in progress...
+Making an attendance app via the console application.
+As of now able to created a employee management where a manager can add/update/view/delete employees as well.
